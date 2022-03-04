@@ -1,0 +1,21 @@
+program        : importDecl* metaDecl declaration* EOF ;
+
+declaration    : staffDecl ;
+
+importDecl     : "import" "{" (IDENTIFIER ",")* IDENTIFIER? "}" "from" LITERAL ;
+
+metaDecl       : "meta" "{" call+ "}" ;
+
+staffDecl      : "staff" IDENTIFIER "is" call "in" SIGNATURE "{" pickup? staffStatement* "}" ;
+
+staffStatement : (measure | call) ;
+
+pickup         : "pickup" block ;
+
+measure        : "measure" block ;
+
+call           : IDENTIFIER "(" (argument ",")* argument? ")" ;
+
+argument       : (LITERAL | IDENTIFIER | NOTE | NUMBER) ;
+
+block          : "{" (call ("with" (IDENTIFIER | call))*)* "}"

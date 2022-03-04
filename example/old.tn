@@ -1,0 +1,28 @@
+import { trumpet } from "std/instruments";
+
+meta {
+    title("Test")
+    description("Testing the language")
+    composer("Nebula")
+}
+
+
+staff t is treble(trumpet) in [3/4] {
+    bpm(100);
+
+    pickup {
+        8(C) with dot
+        16(C)
+    }
+    
+    measure {
+        4(D)
+        4(C)
+        4(F)
+    }
+
+    measure {
+        2(E)
+        4(rest)
+    }
+}

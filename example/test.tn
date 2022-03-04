@@ -1,28 +1,16 @@
-import { trumpet } from std/instruments;
+import { trumpet, piano } from "std/instruments"
 
 meta {
     title("Test")
-    description("Testing the language")
-    composer("Nebula")
+    composer("me")
 }
 
-
-staff t is treble(trumpet) in 3/4 {
-    bpm(100);
-
+staff t is treble(trumpet) in [3/4] {
     pickup {
-        8(C) with dot
-        16(C)
+        quarter("C") with dot with tremelo
     }
-    
+    bpm(100)
     measure {
-        4(D)
-        4(C)
-        4(F)
-    }
-
-    measure {
-        2(E)
-        4(rest)
+        quarter("C") with dot
     }
 }
